@@ -1,0 +1,35 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" >
+      <ion-content color="primary" style="border-radius:5px!important;text-align: center;">
+        <img src="../assets/images/Logo.PNG" style="height: 100px;width: 150px;padding-left: 25px;"/>
+
+        <ion-card color="light">
+            <ion-card-content color="light">
+              <ion-card-title>
+                Digital Solution
+              </ion-card-title>
+              <ion-menu-toggle auto-hide="false" *ngFor="let p of pages; let i = index">
+                <ion-item
+                (click)="selectedIndex = i"
+                routerDirection="root"
+                [routerLink]="[p.url]"
+                [queryParams]="{ 'name': p.title }"
+                lines="none"
+                detail="false"
+                [class.active-item]="activePath === p.url"
+                color="dark">
+                  <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            </ion-card-content>
+
+
+        </ion-card>
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

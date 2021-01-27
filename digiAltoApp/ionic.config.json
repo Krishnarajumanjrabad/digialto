@@ -1,0 +1,7 @@
+{
+  "name": "digiAltoApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
